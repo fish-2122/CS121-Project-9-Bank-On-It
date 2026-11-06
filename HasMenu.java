@@ -1,4 +1,4 @@
 interface HasMenu {
-    string menu();
+    String menu();
     void start();
 }

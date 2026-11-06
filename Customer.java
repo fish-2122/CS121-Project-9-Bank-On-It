@@ -1,10 +1,12 @@
+import java.util.*;
+
 class Customer extends User {
     CheckingAccount checking;
     SavingsAccount savings;
 
 
-    void main() {
-
+    public static void main(String[] args) {
+        Customer customer = new Customer("Alice", 1111);
     }
 
     
@@ -12,7 +14,8 @@ class Customer extends User {
 
     }
     Customer(usernName, PIN) {
-
+        this.usernName = userName;
+        this.PIN = PIN;
     }
     void start() {
 

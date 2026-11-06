@@ -1,3 +1,5 @@
+import java.util.*;
+
 abstract class User implements HasMenu, Serializable{
     string userName;
     string PIN;

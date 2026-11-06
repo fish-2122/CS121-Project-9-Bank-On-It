@@ -1,13 +1,15 @@
+import java.util.*;
+
 public class SavingsAccount extends CheckingAccount {
     double getInterestRate;
 
 
-    main() {
+    public static void main(String[] args) {
         
     }
 
 
-    calcInterest() {
+    void calcInterest() {
         
     }
     void setInterestRate() {

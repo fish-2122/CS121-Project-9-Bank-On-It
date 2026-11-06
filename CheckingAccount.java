@@ -1,45 +1,102 @@
+import java.util.*;
+
 class CheckingAccount implements HasMenu {
     double balance;
 
     
-    CheckingAccount() {
-        
+    public CheckingAccount() {
+        balance = 0.00;
     }
-    CheckingAccount(double balance) {
-        
+    public CheckingAccount(double balance) {
+        this.balance = balance;
     }
-    main() {
-        
+    public static void main(String[] args) {
+        CheckingAccount ca = new CheckingAccount(100.00);
+        ca.start();
     }
 
 
-    string menu() {
-
+    public String menu() {
+        String returnString = "Checking account menu\n0) Quit\n1) Check balance\n2) Make a deposit\n3) Make a withdrawal\nInput: ";
+        return returnString;
     }
-    void start()   {
+    public void start() {
+        Scanner scanner = new Scanner(System.in);
+        int input;
+        boolean keepGoing = true;
         
+        while (keepGoing) {
+            System.out.println(menu());
+
+            try {
+                input = scanner.nextInt();
+            } catch (Exception e) {
+                input = -1;
+            }
+
+            if (input == 0) {
+                keepGoing = false;
+            } else if (input == 1) {
+                checkBalance();
+            } else if (input == 2) {
+                makeDeposit();
+            } else if (input == 3) {
+                makeWithdrawal();
+            } else {
+                System.out.println("Invalid input");
+            }
+
+        }
     } 
 
 
-    double getBalance() {
-        
+    public double getBalance() {
+        return balance;
     }
-    string getBalanceString() {
-        
+    public String getBalanceString() {
+        return Double.toString(balance);
     }
-    void setBalance(double balance) {
-
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
-    void checkBalance() {
-
+    public void checkBalance() {
+        System.out.println("Current balance: " + getBalanceString());
     }
     private double getDouble() {
-
+        return 0.00;
     }
-    void makeDeposit() {
+    public void makeDeposit() {
+        double input = 0.00;
+        Scanner scanner = new Scanner(System.in);
 
+        try {
+            System.out.print("Input: ");
+            input = scanner.nextDouble();
+            if (input <= 0.00) {
+                System.out.println("Invalid input");
+            } else {
+                balance += input;
+                System.out.println("New balance: " + getBalanceString());
+            }
+        } catch (Exception e) {
+            System.out.println("Invalid input");
+        }
     }
-    void makeWithdrawal() {
+    public void makeWithdrawal() {
+        double input = 0.00;
+        Scanner scanner = new Scanner(System.in);
 
+        try {
+            System.out.print("Input: ");
+            input = scanner.nextDouble();
+            if (input <= 0.00) {
+                System.out.println("Invalid input");
+            } else {
+                balance -= input;
+                System.out.println("New balance: " + getBalanceString());
+            }
+        } catch (Exception e) {
+            System.out.println("Invalid input");
+        }
     }
 }
