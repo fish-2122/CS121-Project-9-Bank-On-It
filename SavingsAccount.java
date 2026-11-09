@@ -9,13 +9,13 @@ public class SavingsAccount extends CheckingAccount {
         sa.start();
     }
 
-    void calcInterest() {
+    public void calcInterest() {
         System.out.println("WIP");
     }
-    void setInterestRate(double interestRate) {
+    public void setInterestRate(double interestRate) {
         this.interestRate = interestRate;
     }
-    double getInterestRate() {
+    public double getInterestRate() {
         return interestRate;
     }
     public String menu() {

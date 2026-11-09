@@ -80,4 +80,23 @@ catch
     print "invalid input"
 ```
 # SavingsAccount.java
-###
+### public static void main(String[] args)
+```
+create a new SavingsAccount and run start()
+```
+### public void calcInterest()
+```
+W.I.P.
+```
+### public void setInterestRate(double interestRate)
+```
+sets this.interestRate to interestRate
+```
+### public double getInterestRate()
+```
+returns interestRate
+```
+### public String menu()
+```
+returns menu options for SavingsAccount
+```
