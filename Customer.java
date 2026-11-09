@@ -6,7 +6,7 @@ class Customer extends User {
 
 
     public static void main(String[] args) {
-        Customer customer = new Customer("Me", "1111");
+        Customer customer = new Customer("Alice", "1111");
         customer.start();
     }
 
@@ -18,6 +18,13 @@ class Customer extends User {
         int input = -1;
         boolean keepGoing = true;
 
+        while (keepGoing) {
+            if (login() == true) {
+                keepGoing = false;
+            }
+        }
+
+        keepGoing = true;
         while (keepGoing) {
             System.out.println(menu());
 
@@ -50,7 +57,7 @@ class Customer extends User {
         userName = "Alice";
         PIN = "1111";
     }
-    public Customer(String usernName, String PIN) {
+    public Customer(String userName, String PIN) {
         this.userName = userName;
         this.PIN = PIN;
     }

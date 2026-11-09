@@ -17,9 +17,9 @@ abstract class User implements HasMenu, Serializable {
         PINInput = scanner.nextLine();
         return login(userNameInput, PINInput);
     }
-    boolean login(String userName, String PIN) {
+    boolean login(String userNameInput, String PINInput) {
         boolean tf = false;
-        if (userName == this.userName && PIN == this.PIN) {
+        if (userNameInput.equals(userName) && PINInput.equals(PIN)) {
             tf = true;
         } else {
             System.out.println("Invalid login credentials");

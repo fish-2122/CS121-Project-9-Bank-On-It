@@ -100,3 +100,39 @@ returns interestRate
 ```
 returns menu options for SavingsAccount
 ```
+# User.java
+### boolean login()
+```
+create a scanner, a variable for userNameInput, and a variable for PINInput
+
+prompt user for 
+```
+### boolean login(String userName, String PIN)
+```
+create a boolean tf that starts as false
+if username is correct and pin is correct
+    tf = true
+else
+    print "invalid login credentials"
+return tf
+```
+### void setUserName(String userName)
+```
+sets this.userName to userName
+```
+### String getUserName()
+```
+returns userName
+```
+### void setPIN(String PIN)
+```
+sets this.PIN to PIN
+```
+### String getPIN()
+```
+returns PIN
+```
+### abstract String getReport()
+```
+W.I.P.
+```
