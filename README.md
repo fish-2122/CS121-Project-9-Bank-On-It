@@ -105,7 +105,8 @@ returns menu options for SavingsAccount
 ```
 create a scanner, a variable for userNameInput, and a variable for PINInput
 
-prompt user for 
+prompt user for userName and PIN
+calls the login() method with the parameters received from the user
 ```
 ### boolean login(String userName, String PIN)
 ```
