@@ -137,3 +137,64 @@ returns PIN
 ```
 W.I.P.
 ```
+# Customer.java
+###  public static void main(String[] args)
+```
+create a new Customer and run the start() method
+```
+### public void start()
+```
+create CheckingAccount called checking and a SavingsAccount called savings
+create a scanner, an input, and a keepGoing variable
+
+while keepGoing
+    if login() == true
+        keepGoing = false
+
+keepGoing = true
+while keepGoing
+    try
+        use scanner to put next int into input
+    catch
+        input = -1
+    
+    if input == 0
+        keepGoing = false
+    elif input == 1
+        checkBalance()
+    elif input == 2
+        makeDeposit()
+    elif input == 3
+        makeWithdrawal()
+    else
+        print "invalid input"
+```
+### public String menu()
+```
+returns the menu options as a string
+```
+### public Customer()
+```
+default constructor
+```
+### public Customer(String userName, String PIN) 
+```
+sets this.userName to userName
+sets this.PIN to PIN
+```
+### public void changePin()
+```
+create a scanner, a pinInputInt, and a pinInputStr variable
+
+prompt user for new pin and store in pinInputStr
+
+try
+    convert pinInputStr to an int and put it in pinInputInt
+    if pin length is 4, set pin to new pin. else, print "invalid input"
+catch
+    print "invalid input"
+```
+### public String getReport()
+```
+W.I.P.
+```
