@@ -13,7 +13,7 @@ class Admin extends User{
         String returnString = "Admin name: " + userName + "\nPIN: " + PIN;
         return returnString;
     }
-    void start() {
+    public void start() {
         System.out.println("W.I.P.");
     }
 }

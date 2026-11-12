@@ -1,28 +1,30 @@
 import java.util.*;
+import java.io.*;
 
 class Bank {
     Admin admin = new Admin();
     ArrayList<Customer> customers = new ArrayList<>();
 
     public static void main(String[] args) {
+        System.out.println("App started");
         Bank bank = new Bank();
         bank.start();
     }
 
-
     public Bank() {
 
     }
+
     public void loadCustomers() {
         try {
             FileInputStream fIn = new FileInputStream("customerArray.dat");
             ObjectInputStream obIn = new ObjectInputStream(fIn);
-            customers = (Customer[])obIn.readObject();
-            System.out.println(critters[0].name);
+            customers = (ArrayList<Customer>)obIn.readObject();
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
     }
+
     public void saveCustomers() {
         try {
             FileOutputStream fo = new FileOutputStream("customerArray.dat");
@@ -32,22 +34,24 @@ class Bank {
             System.out.println(e.getMessage());
         }
     }
+
     public void fullCustomerReport() {
         for (Customer customer : customers) {
             System.out.println(customer.getReport());
         }
     }
+
     public void addUser() {
-        String userNameInput;
-        String PINInput;
+        String userNameInput = "";
+        String PINInput = "";
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter username (at least 3 characters)");
         boolean validUserName = false;
         while (!validUserName) {
-            userNameInput = Scanner.nextLine();
+            userNameInput = scanner.nextLine();
 
-            if (useruserNameInput.length() < 3) {
+            if (userNameInput.length() >= 3) {
                 validUserName = true;
 
                 for (Customer customer : customers) {
@@ -78,22 +82,29 @@ class Bank {
             }
         }
 
-        customers.add(new Customer(userNameInput, PINInput));
-    }
-    public void applyInterest() {
-        for (Customer customer : customers) {
-
+        if (validUserName && validPIN) {
+            customers.add(new Customer(userNameInput, PINInput));
         }
     }
+
+    public void applyInterest() {
+        for (Customer customer : customers) {
+            customer.savings.calcInterest();
+            fullCustomerReport();
+        }
+    }
+
     public void loginAsCustomer() {
         String userNameInput;
         String PINInput;
+        Scanner scanner = new Scanner(System.in);
+
         System.out.println("Enter username:");
         userNameInput = scanner.nextLine();
         System.out.println("Enter PIN:");
         PINInput = scanner.nextLine();
 
-        Customer loggedInCustomer;
+        Customer loggedInCustomer = null;
         for (Customer customer : customers) {
             if (userNameInput.equals(customer.getUserName())) {
                 loggedInCustomer = customer;
@@ -109,22 +120,28 @@ class Bank {
             System.out.println();
         }
     }
+
     public String menu() {
         String returnString = "0) Quit\n1) Login as admin\n2) Login as customer";
         return returnString;
     }
+
     public void start() {
         loadCustomers();
+        int userInput = -1;
 
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Input: " + userInput);
 
-        boolean keepGoing = true
-        while keepGoing () {
-            menu();
-            String userInput = -1;
+        boolean keepGoing = true;
+        while (keepGoing) {
+            System.out.println(menu());
+            userInput = scanner.nextInt();
+            System.out.println("Input: " + userInput);
 
-            If (userInput == 0) {
+            if (userInput == 0) {
                 keepGoing = false;
+                saveCustomers();
             } else if (userInput == 1) {
                 if (admin.login()) {
                     startAdmin();
@@ -138,14 +155,16 @@ class Bank {
             }
         }
     }
+
     public void startAdmin() {
         Scanner scanner = new Scanner(System.in);
-        String userInput = -1;
+        int userInput = -1;
 
         boolean keepGoing = true;
         while (keepGoing) {
             System.out.println(admin.menu());
-            userInput = scanner.nextLine();
+
+            userInput = scanner.nextInt();
 
             if (userInput == 0) {
                 keepGoing = false;

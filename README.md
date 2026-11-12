@@ -217,3 +217,7 @@ loadCustomers() will load all of the customers from the customer file and put th
 call loginAsCustomer()
 
 ```
+# Known issues
+- "Invalid credentials" is shown twice when failed to login as admin
+- Some menus dont have the "Input: " part of the menu
+- You have to put in the login credentials twice to login as customer

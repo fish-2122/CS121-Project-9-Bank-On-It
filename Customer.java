@@ -2,8 +2,8 @@ import java.util.*;
 import java.io.Serializable;
 
 class Customer extends User implements Serializable {
-    CheckingAccount checking;
-    SavingsAccount savings;
+    CheckingAccount checking = new CheckingAccount();
+    SavingsAccount savings = new SavingsAccount();
 
 
     public static void main(String[] args) {
@@ -13,8 +13,6 @@ class Customer extends User implements Serializable {
 
 
     public void start() {
-        checking = new CheckingAccount();
-        savings = new SavingsAccount();
         Scanner scanner = new Scanner(System.in);
         int input = -1;
         boolean keepGoing = true;
