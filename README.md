@@ -212,3 +212,8 @@ saveCustomers() will take customers and put it in customerArray.dat
 loadCustomers() will load all of the customers from the customer file and put them in the customers ArrayList
     
 ```
+# Logging in as customer
+```
+call loginAsCustomer()
+
+```
