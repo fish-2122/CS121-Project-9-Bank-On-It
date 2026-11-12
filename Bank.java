@@ -33,7 +33,9 @@ class Bank {
         }
     }
     public void fullCustomerReport() {
-
+        for (Customer customer : customers) {
+            System.out.println(customer.getReport());
+        }
     }
     public void addUser() {
         String userNameInput;
@@ -148,11 +150,11 @@ class Bank {
             if (userInput == 0) {
                 keepGoing = false;
             } else if (userInput == 1) {
-
+                fullCustomerReport();
             } else if (userInput == 2) {
-
+                addUser();
             } else if (userInput == 3) {
-
+                applyInterest();
             } else {
                 System.out.println("Invalid input");
             }
