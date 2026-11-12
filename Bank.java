@@ -79,7 +79,9 @@ class Bank {
         customers.add(new Customer(userNameInput, PINInput));
     }
     public void applyInterest() {
+        for (Customer customer : customers) {
 
+        }
     }
     public void loginAsCustomer() {
         String userNameInput;
@@ -122,7 +124,11 @@ class Bank {
             If (userInput == 0) {
                 keepGoing = false;
             } else if (userInput == 1) {
-                
+                if (admin.login()) {
+                    startAdmin();
+                } else {
+                    System.out.println("Invalid login credentials");
+                }
             } else if (userInput == 2) {
                 loginAsCustomer();
             } else {
@@ -131,6 +137,25 @@ class Bank {
         }
     }
     public void startAdmin() {
+        Scanner scanner = new Scanner(System.in);
+        String userInput = -1;
 
+        boolean keepGoing = true;
+        while (keepGoing) {
+            System.out.println(admin.menu());
+            userInput = scanner.nextLine();
+
+            if (userInput == 0) {
+                keepGoing = false;
+            } else if (userInput == 1) {
+
+            } else if (userInput == 2) {
+
+            } else if (userInput == 3) {
+
+            } else {
+                System.out.println("Invalid input");
+            }
+        }
     }
 }
