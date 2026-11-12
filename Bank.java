@@ -5,7 +5,8 @@ class Bank {
     ArrayList<Customer> customers = new ArrayList<>();
 
     public static void main(String[] args) {
-
+        Bank bank = new Bank();
+        bank.start();
     }
 
 

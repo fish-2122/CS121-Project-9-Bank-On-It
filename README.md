@@ -203,5 +203,12 @@ W.I.P.
 
 # Saving and loading customers
 ```
-
+addUser() will go through the process of creating a new Customer
+    have userNameInput and PINInput variables for making the object
+    get inputs for those variables
+    create new customer object with those variables
+    add to the end of the customers ArrayList
+saveCustomers() will take customers and put it in customerArray.dat
+loadCustomers() will load all of the customers from the customer file and put them in the customers ArrayList
+    
 ```
