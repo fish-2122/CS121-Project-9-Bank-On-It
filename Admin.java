@@ -6,7 +6,7 @@ class Admin extends User{
         PIN = "0000";
     }
     public String menu() {
-        String returnString = "Admin menu\n0) Quit\n1) Full customer report\n2) Add user\n3) Apply interest to savings accounts";
+        String returnString = "Admin menu\n0) Quit\n1) Full customer report\n2) Add user\n3) Apply interest to savings accounts\nInput: ";
         return returnString;
     }
     public String getReport() {

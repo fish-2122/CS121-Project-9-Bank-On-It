@@ -104,25 +104,26 @@ class Bank {
         System.out.println("Enter PIN:");
         PINInput = scanner.nextLine();
 
-        Customer loggedInCustomer = null;
+        Customer loggedInCustomer;
         for (Customer customer : customers) {
             if (userNameInput.equals(customer.getUserName())) {
                 loggedInCustomer = customer;
+                if (loggedInCustomer.login(userNameInput, PINInput)) {
+                    loggedInCustomer.start();
+                    saveCustomers();
+                } else {
+                    System.out.println();
+                }
             } else {
                 System.out.println("No account found");
             }
         }
         
-        if (loggedInCustomer.login(userNameInput, PINInput)) {
-            loggedInCustomer.start();
-            saveCustomers();
-        } else {
-            System.out.println();
-        }
+        
     }
 
     public String menu() {
-        String returnString = "0) Quit\n1) Login as admin\n2) Login as customer";
+        String returnString = "0) Quit\n1) Login as admin\n2) Login as customer\nInput: ";
         return returnString;
     }
 
@@ -131,7 +132,6 @@ class Bank {
         int userInput = -1;
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Input: " + userInput);
 
         boolean keepGoing = true;
         while (keepGoing) {
@@ -145,8 +145,6 @@ class Bank {
             } else if (userInput == 1) {
                 if (admin.login()) {
                     startAdmin();
-                } else {
-                    System.out.println("Invalid login credentials");
                 }
             } else if (userInput == 2) {
                 loginAsCustomer();

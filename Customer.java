@@ -8,22 +8,22 @@ class Customer extends User implements Serializable {
 
     public static void main(String[] args) {
         Customer customer = new Customer("Alice", "1111");
-        customer.start();
+        
+        boolean keepGoing = true;
+        while (keepGoing) {
+            if (customer.login()) {
+                keepGoing = false;
+                customer.start();
+            }
+        }
     }
 
 
     public void start() {
         Scanner scanner = new Scanner(System.in);
         int input = -1;
+
         boolean keepGoing = true;
-
-        while (keepGoing) {
-            if (login() == true) {
-                keepGoing = false;
-            }
-        }
-
-        keepGoing = true;
         while (keepGoing) {
             System.out.println(menu());
 

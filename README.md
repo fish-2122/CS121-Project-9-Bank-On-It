@@ -218,6 +218,6 @@ call loginAsCustomer()
 
 ```
 # Known issues
-- "Invalid credentials" is shown twice when failed to login as admin
-- Some menus dont have the "Input: " part of the menu
-- You have to put in the login credentials twice to login as customer
+- "Invalid credentials" is shown twice when failed to login as admin : fixed
+- Some menus dont have the "Input: " part of the menu : fixed
+- You have to put in the login credentials twice to login as customer : fixed
